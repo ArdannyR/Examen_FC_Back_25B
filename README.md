@@ -3,6 +3,11 @@
 
 Proyecto de backend enfocado en la gestión de servicios, estructurado con un sistema de rutas, controladores y modelos para administrar usuarios, clientes, técnicos y tickets. Todas las rutas base de la API inician con el prefijo `/api`.
 
+---
+## Esquema de Base de Datos
+<img width="726" height="348" alt="image" src="https://github.com/user-attachments/assets/ddc52aca-1512-495c-97f4-86d5bfbc3bfa" />
+
+---
 # **Modelos y sus endpoints**
 
 ## 1. Usuario
@@ -52,3 +57,4 @@ Módulo transaccional principal que asocia las tareas requeridas con un técnico
 * **Base de Datos:** MongoDB manipulado a través de Mongoose v9.2.2
 * **Seguridad y Autenticación:** Protección de rutas mediante JSON Web Tokens (`jsonwebtoken`) y cifrado de contraseñas con `bcryptjs`.
 * **Utilidades:** Variables de entorno administradas con `dotenv` y políticas CORS configuradas con el paquete `cors`.
+

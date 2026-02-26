@@ -58,3 +58,7 @@ Módulo transaccional principal que asocia las tareas requeridas con un técnico
 * **Seguridad y Autenticación:** Protección de rutas mediante JSON Web Tokens (`jsonwebtoken`) y cifrado de contraseñas con `bcryptjs`.
 * **Utilidades:** Variables de entorno administradas con `dotenv` y políticas CORS configuradas con el paquete `cors`.
 
+---
+## Prueba de rendimienti usando Postman
+<img width="1381" height="687" alt="image" src="https://github.com/user-attachments/assets/69794c9b-2d61-4003-bb92-25ee78313331" />
+

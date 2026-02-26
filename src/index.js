@@ -6,6 +6,7 @@ import connection from './database.js';
 // Rutas de modelos
 import usuarioRoute from './routers/usuario_routes.js'
 import clienteRoute from './routers/cliente_routes.js'
+import tecnicoRoute from './routers/tecnico_routes.js'
 
 // Inicializaciones
 const app = express();
@@ -22,6 +23,7 @@ app.get('/', (req, res) => res.send("Servidor de Gestion de Tickets en linea"))
 // Rutas de modelos
 app.use('/api', usuarioRoute)
 app.use('/api', clienteRoute)
+app.use('/api', tecnicoRoute)
 
 // Iniciar el servidor (Nota: El tab me ayuda con los comentarios :p )
 app.listen(app.get('port'), () => {

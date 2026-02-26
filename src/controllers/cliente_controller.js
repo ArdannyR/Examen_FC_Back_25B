@@ -30,6 +30,16 @@ const listarClientes = async (req, res) => {
     }
 }
 
+const detalleCliente = async (req, res) => {
+    const {id} = req.params
+    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg: "ID no válido"})
+
+    const cliente = await Cliente.findById(id)
+    if(!cliente) return res.status(404).json({msg: "Cliente no encontrado"})
+
+    res.status(200).json(cliente)
+}
+
 const actualizarCliente = async (req, res) => {
     const {id} = req.params
     if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg: "ID no válido"})
@@ -56,5 +66,6 @@ export {
     registrarCliente,
     listarClientes,
     actualizarCliente,
+    detalleCliente,
     eliminarCliente
 }

@@ -30,6 +30,16 @@ const listarTecnicos = async (req, res) => {
     }
 }
 
+const detalleTecnico = async (req, res) => {
+    const {id} = req.params
+    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg: "ID no válido"})
+
+    const tecnico = await Tecnico.findById(id)
+    if(!tecnico) return res.status(404).json({msg: "Técnico no encontrado"})
+
+    res.status(200).json(tecnico)
+}
+
 const actualizarTecnico = async (req, res) => {
     const {id} = req.params
     if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg: "ID no válido"})
@@ -56,5 +66,6 @@ export {
     registrarTecnico,
     listarTecnicos,
     actualizarTecnico,
+    detalleTecnico,
     eliminarTecnico
 }

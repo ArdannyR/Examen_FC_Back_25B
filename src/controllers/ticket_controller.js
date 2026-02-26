@@ -44,6 +44,19 @@ const listarTickets = async (req, res) => {
     }
 }
 
+const detalleTicket = async (req, res) => {
+    const {id} = req.params
+    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg: "ID no válido"})
+
+    const ticket = await Ticket.findById(id)
+        .populate('cliente', 'nombre apellido cedula ciudad direccion dependencia')
+        .populate('tecnico', 'nombre apellido cedula telefono')
+
+    if(!ticket) return res.status(404).json({msg: "Ticket no encontrado"})
+
+    res.status(200).json(ticket)
+}
+
 const actualizarTicket = async (req, res) => {
     const {id} = req.params
     if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg: "ID no válido"})
@@ -70,5 +83,6 @@ export {
     registrarTicket,
     listarTickets,
     actualizarTicket,
+    detalleTicket,
     eliminarTicket
 }

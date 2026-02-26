@@ -20,6 +20,7 @@ Almacena la información de las entidades o personas que solicitan soporte.
 **Endpoints (Privados - Requieren Token JWT):**
 * `POST /api/clientes`: Crea un nuevo registro de cliente validando que la cédula ingresada no exista previamente.
 * `GET /api/clientes`: Devuelve un arreglo con todos los clientes registrados, ordenados desde el más reciente.
+* `GET /api/cliente/:id`: Devuelve un JSON del cliente al cual corresponda la ID en MongoDB.
 * `PUT /api/cliente/:id`: Actualiza los datos de un cliente específico según su ID de MongoDB.
 * `DELETE /api/cliente/:id`: Elimina a un cliente de la base de datos.
 
@@ -30,6 +31,7 @@ Gestiona el personal encargado de atender y resolver los tickets.
 **Endpoints (Privados - Requieren Token JWT):**
 * `POST /api/tecnicos`: Registra la información de un nuevo técnico.
 * `GET /api/tecnicos`: Obtiene la lista completa de técnicos registrados en el sistema.
+* `GET /api/tecnico/:id`: Devuelve un JSON del tecnico al cual corresponda la ID en MongoDB.
 * `PUT /api/tecnico/:id`: Modifica la información de un técnico.
 * `DELETE /api/tecnico/:id`: Borra el registro de un técnico mediante su ID.
 
@@ -40,6 +42,7 @@ Módulo transaccional principal que asocia las tareas requeridas con un técnico
 **Endpoints (Privados - Requieren Token JWT):**
 * `POST /api/tickets`: Crea un nuevo ticket verificando obligatoriamente que tanto el ID del cliente como el del técnico existan en la base de datos.
 * `GET /api/tickets`: Lista los tickets de servicio e incluye detalles anidados utilizando el método `populate` de Mongoose, trayendo datos clave del cliente (nombre, apellido, cédula, dependencia) y del técnico asignado (nombre, apellido, teléfono).
+* `GET /api/ticket/:id`: Devuelve un JSON del ticket al cual corresponda la ID en MongoDB.
 * `PUT /api/ticket/:id`: Actualiza la información de un ticket existente.
 * `DELETE /api/ticket/:id`: Elimina un ticket del sistema.
 

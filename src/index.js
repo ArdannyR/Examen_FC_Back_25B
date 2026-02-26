@@ -5,6 +5,7 @@ import cors from 'cors';
 import connection from './database.js';
 // Rutas de modelos
 import usuarioRoute from './routers/usuario_route.js'
+import clienteRoute from './routers/cliente_routes.js'
 
 // Inicializaciones
 const app = express();
@@ -19,7 +20,8 @@ app.use(express.json());
 // Ruta de prueba
 app.get('/', (req, res) => res.send("Servidor de Gestion de Tickets en linea"))
 // Rutas de modelos
-app.use('/api/usuarios', usuarioRoute)
+app.use('/api', usuarioRoute)
+app.use('/api', clienteRoute)
 
 // Iniciar el servidor (Nota: El tab me ayuda con los comentarios :p )
 app.listen(app.get('port'), () => {

@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connection from './database.js';
 // Rutas de modelos
-import usuarioRoute from './routers/usuario_route.js'
+import usuarioRoute from './routers/usuario_routes.js'
 import clienteRoute from './routers/cliente_routes.js'
 
 // Inicializaciones
